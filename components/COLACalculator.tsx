@@ -20,6 +20,13 @@ export function COLACalculator() {
 
   const handleSeeResults = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    (
+      window as unknown as {
+        gtag?: (command: string, name: string, params?: Record<string, unknown>) => void;
+      }
+    ).gtag?.("event", "see_all_scenarios_click", {
+      benefit_amount: Math.round(benefit),
+    });
     document
       .getElementById("scenarios")
       ?.scrollIntoView({ behavior: "smooth", block: "start" });

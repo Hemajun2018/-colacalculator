@@ -15,6 +15,16 @@ export function COLACalculator() {
   const isValidRange = benefit >= 50 && benefit <= 5000;
   const showWarning = deferredInput !== "" && benefit > 0 && !isValidRange;
 
+  const midScenario = COLA_DATA.scenarios.find((s) => s.id === "mid")!;
+  const midResult = calculateCOLA(benefit, midScenario.percentage);
+
+  const handleSeeResults = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    document
+      .getElementById("scenarios")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <section
       id="calculator"
@@ -95,10 +105,39 @@ export function COLACalculator() {
               Please verify your amount.
             </p>
           )}
+
+          {isValidRange && (
+            <div
+              className="mt-5 pt-5 border-t border-gray-200 flex items-center justify-between gap-4 flex-wrap"
+              aria-live="polite"
+            >
+              <div>
+                <p className="text-base text-gray-600">
+                  Moderate {midScenario.percentage.toFixed(1)}% forecast
+                </p>
+                <p className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
+                  {formatCurrency(midResult.grossMonthlyBenefit)}/mo
+                  <span className="ml-2 text-lg md:text-xl font-semibold text-emerald-600 align-middle">
+                    +{formatCurrency(midResult.monthlyIncrease)}/mo
+                  </span>
+                </p>
+              </div>
+              <a
+                href="#scenarios"
+                onClick={handleSeeResults}
+                className="inline-flex items-center min-h-[44px] px-4 py-2 text-lg font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100"
+              >
+                See all 3 scenarios ↓
+              </a>
+            </div>
+          )}
         </div>
 
         {/* Scenario cards */}
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+        <h2
+          id="scenarios"
+          className="text-xl md:text-2xl font-bold text-gray-900 mb-4 scroll-mt-20"
+        >
           Your Estimated 2027 Benefit Under 3 Scenarios
         </h2>
         <div

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const softwareAppSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "2027 Social Security COLA Calculator",
+  name: "Social Security COLA 2027 Calculator",
   applicationCategory: "FinanceApplication",
   operatingSystem: "Web",
   url: "https://colacalculator.com",
@@ -42,9 +42,9 @@ export default function HomePage() {
       <section className="bg-gradient-to-b from-blue-50 to-white py-12 md:py-20">
         <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8 text-center">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-            2027 Social Security COLA Forecast:{" "}
+            Social Security COLA 2027:{" "}
             <span className="block md:inline">
-              Calculate Your Estimated Benefit Increase
+              Forecast &amp; Benefit Calculator
             </span>
           </h1>
 

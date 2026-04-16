@@ -11,26 +11,26 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://colacalculator.com"),
   title: {
     default:
-      "2027 Social Security COLA Forecast & Calculator | Estimate Your Benefit Increase",
+      "Social Security COLA 2027: Forecast & Free Calculator",
     template: "%s | COLA Calculator",
   },
   description:
-    "Latest 2027 COLA projections (2.8%–4.0%). Enter your current benefit to see your estimated 2027 Social Security increase, including Medicare deductions.",
+    "Social Security COLA 2027 forecast: 2.8%–3.2%. Enter your current benefit to see your estimated 2027 Social Security increase, after Medicare Part B deductions.",
   authors: [{ name: "COLA Calculator" }],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://colacalculator.com",
     siteName: "COLA Calculator",
-    title: "2027 Social Security COLA Forecast & Calculator",
+    title: "Social Security COLA 2027: Forecast & Free Calculator",
     description:
-      "Latest 2027 COLA projections (2.8%–4.0%). Calculate your estimated 2027 benefit increase.",
+      "Social Security COLA 2027 forecast (2.8%–3.2%). Free calculator — see your estimated 2027 benefit increase after Medicare.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "2027 Social Security COLA Forecast & Calculator",
+    title: "Social Security COLA 2027: Forecast & Free Calculator",
     description:
-      "Latest 2027 COLA projections (2.8%–4.0%). Calculate your estimated 2027 benefit increase.",
+      "Social Security COLA 2027 forecast (2.8%–3.2%). Free calculator — see your estimated 2027 benefit increase.",
   },
   other: {
     "geo.region": "US",

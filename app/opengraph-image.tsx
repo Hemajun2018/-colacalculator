@@ -42,7 +42,7 @@ export default function OGImage() {
             marginBottom: 40,
           }}
         >
-          2027 Social Security COLA Forecast
+          Social Security COLA 2027
         </div>
         <div
           style={{

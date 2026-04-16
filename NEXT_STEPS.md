@@ -17,6 +17,9 @@
 - [x] OG image（edge runtime 动态生成）
 - [x] GitHub 公开仓库 + README 含 7 条关键词 anchor 外链
 - [x] 首屏即可输入的 Hero Calculator UI
+- [x] **Bing Webmaster Tools** 验证（GSC 导入）+ sitemap 提交 + 7 个核心 URL 手动提交
+- [x] **IndexNow** 集成：key 文件（`public/f08cb41ecb7c4c6d8d09ef91e3ca366a.txt`）+ 月更 ping 脚本（`scripts/ping-indexnow.sh`）
+- [x] UI 优化：输入框 `/month` 单位后缀、百分比统一 1 位小数、输入后即时预览卡片 + "See all 3 scenarios" 滚动跳转
 
 ---
 
@@ -38,10 +41,8 @@
 ## 🟢 短期行动（1~2 周内完成）
 
 ### 搜索引擎覆盖扩展
-- [ ] **Bing Webmaster Tools** — 提交 sitemap（覆盖 Bing + Yahoo + ChatGPT Search）
-  - https://www.bing.com/webmasters → 添加站点 → 从 GSC 导入或重新验证
-  - 耗时 5 分钟
-- [ ] **Yandex Webmaster**（可选，如果目标人群有海外华人等）
+- [x] ~~**Bing Webmaster Tools** — 提交 sitemap~~（2026-04-16 完成，URL Submission + IndexNow 都配好）
+- [ ] **Yandex Webmaster**（可选，IndexNow 已覆盖 Yandex，此项可跳过）
 
 ### 社区外链 & 首发
 - [ ] **Reddit r/SocialSecurity 发帖**
@@ -127,8 +128,9 @@
    - [ ] `forecastRange` → 当前预测区间
 3. `git commit -m "content: update COLA data for [month] CPI release"` + `git push`
 4. Vercel 自动部署（1~2 分钟）
-5. GSC → 网址检查 → 首页 + `/2027-social-security-cola-forecast` 各请求一次"重新编入索引"
-6. （可选）Reddit / Twitter 发一条更新帖，截图 + 链接
+5. **运行 `./scripts/ping-indexnow.sh`** — 一秒通知 Bing + Yandex + Naver + Seznam 重新抓取
+6. GSC → 网址检查 → 首页 + `/2027-social-security-cola-forecast` 各请求一次"重新编入索引"
+7. （可选）Reddit / Twitter 发一条更新帖，截图 + 链接
 
 ---
 
@@ -167,4 +169,4 @@
 
 ---
 
-*最后更新：2026-04-16 · 上线首日。下一次大更新：2026-05-13 四月 CPI 数据发布后。*
+*最后更新：2026-04-16 · 上线首日（Bing Webmaster + IndexNow + 首屏 UI 优化完成）。下一次大更新：2026-05-13 四月 CPI 数据发布后。*

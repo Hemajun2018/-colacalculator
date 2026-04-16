@@ -12,8 +12,30 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           <Link
             href="/"
-            className="text-xl font-bold text-blue-800 hover:text-blue-900"
+            className="flex items-center gap-2 text-xl font-bold text-blue-800 hover:text-blue-900"
+            aria-label="COLA Calculator home"
           >
+            <svg
+              viewBox="0 0 24 24"
+              className="w-7 h-7 shrink-0"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"
+                fill="currentColor"
+              />
+              <text
+                x="12"
+                y="15.5"
+                textAnchor="middle"
+                fill="white"
+                fontSize="11"
+                fontWeight="700"
+                fontFamily="system-ui, -apple-system, sans-serif"
+              >
+                $
+              </text>
+            </svg>
             COLA Calculator
           </Link>
 

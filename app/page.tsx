@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { COLA_DATA } from "@/lib/cola-data";
 import { COLACalculator } from "@/components/COLACalculator";
-import { CountdownTimer } from "@/components/CountdownTimer";
 import { COLAChart } from "@/components/COLAChart";
 import { FAQSection } from "@/components/FAQSection";
 import Link from "next/link";
@@ -38,46 +36,7 @@ export default function HomePage() {
         }}
       />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-50 to-white py-12 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-            Social Security COLA 2027:{" "}
-            <span className="block md:inline">
-              Forecast &amp; Benefit Calculator
-            </span>
-          </h1>
-
-          {/* Forecast highlight */}
-          <div className="inline-block bg-white border-2 border-blue-800 rounded-2xl px-8 py-6 mb-6 shadow-sm">
-            <p className="text-base text-gray-600 mb-1">
-              2027 COLA Forecast Range
-            </p>
-            <p className="text-5xl md:text-6xl font-bold text-blue-800">
-              {COLA_DATA.forecastRange.low}% – {COLA_DATA.forecastRange.high}%
-            </p>
-            <p className="text-base text-gray-600 mt-2">
-              Estimated COLA Increase
-            </p>
-          </div>
-
-          <div className="space-y-2">
-            <p className="text-lg text-gray-600">
-              Based on latest CPI-W data as of{" "}
-              <span className="font-semibold">
-                {new Date(COLA_DATA.dataAsOf).toLocaleDateString("en-US", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric",
-                })}
-              </span>
-            </p>
-            <CountdownTimer />
-          </div>
-        </div>
-      </section>
-
-      {/* Calculator Section */}
+      {/* Hero + Calculator */}
       <COLACalculator />
 
       {/* COLA History Chart */}

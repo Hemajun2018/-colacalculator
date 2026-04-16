@@ -3,6 +3,7 @@
 import { useState, useDeferredValue } from "react";
 import { COLA_DATA } from "@/lib/cola-data";
 import { calculateCOLA, formatCurrency, formatCurrencyWhole } from "@/lib/calculator";
+import { CountdownTimer } from "./CountdownTimer";
 
 export function COLACalculator() {
   const [inputValue, setInputValue] = useState(
@@ -15,26 +16,56 @@ export function COLACalculator() {
   const showWarning = deferredInput !== "" && benefit > 0 && !isValidRange;
 
   return (
-    <section className="py-12 md:py-16" id="calculator">
+    <section
+      id="calculator"
+      className="bg-gradient-to-b from-blue-50 to-white py-8 md:py-14"
+    >
       <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-          Calculate Your 2027 Benefit Increase
-        </h2>
-        <p className="text-lg text-gray-600 mb-8">
-          Enter your current monthly Social Security benefit to see estimated
-          changes under three COLA scenarios.
-        </p>
+        {/* H1 */}
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-5 leading-tight text-center">
+          Social Security COLA 2027:{" "}
+          <span className="block md:inline">
+            Forecast &amp; Benefit Calculator
+          </span>
+        </h1>
 
-        {/* Input */}
-        <div className="mb-8 max-w-md">
+        {/* Forecast pill */}
+        <div className="flex justify-center mb-6">
+          <div className="inline-flex items-baseline gap-3 bg-white border-2 border-blue-800 rounded-full px-6 py-3 shadow-sm">
+            <span className="text-base text-gray-600 font-medium">
+              2027 Forecast:
+            </span>
+            <span className="text-3xl md:text-4xl font-bold text-blue-800">
+              {COLA_DATA.forecastRange.low}% – {COLA_DATA.forecastRange.high}%
+            </span>
+          </div>
+        </div>
+
+        {/* Meta info */}
+        <div className="text-center mb-8 space-y-1">
+          <p className="text-base text-gray-600">
+            Based on CPI-W data as of{" "}
+            <span className="font-semibold text-gray-900">
+              {new Date(COLA_DATA.dataAsOf).toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </span>
+          </p>
+          <CountdownTimer />
+        </div>
+
+        {/* Input card */}
+        <div className="bg-white border-2 border-gray-200 rounded-2xl shadow-sm p-6 md:p-8 mb-8">
           <label
             htmlFor="benefit-input"
-            className="block text-lg font-semibold text-gray-900 mb-2"
+            className="block text-lg md:text-xl font-semibold text-gray-900 mb-3"
           >
-            Your Current Monthly Benefit
+            Enter Your Current Monthly Social Security Benefit
           </label>
           <div className="relative">
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl text-gray-600">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl text-gray-600 font-medium">
               $
             </span>
             <input
@@ -45,12 +76,12 @@ export function COLACalculator() {
               step="0.01"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              className="w-full h-14 text-2xl pl-10 pr-4 border-2 border-gray-300 rounded-lg focus:border-blue-800 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+              className="w-full h-16 text-3xl font-semibold pl-12 pr-4 border-2 border-gray-300 rounded-lg focus:border-blue-800 focus:ring-2 focus:ring-blue-200 focus:outline-none"
               aria-describedby="benefit-hint"
             />
           </div>
-          <p id="benefit-hint" className="mt-2 text-base text-gray-600">
-            The average retired worker receives $2,024.77/month in 2026.
+          <p id="benefit-hint" className="mt-3 text-base text-gray-600">
+            The average retired worker receives ${COLA_DATA.averageBenefit}/month in {COLA_DATA.currentYear}.
           </p>
           {showWarning && (
             <p className="mt-2 text-base text-amber-600" role="alert">
@@ -60,7 +91,10 @@ export function COLACalculator() {
           )}
         </div>
 
-        {/* Scenario Cards */}
+        {/* Scenario cards */}
+        <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+          Your Estimated 2027 Benefit Under 3 Scenarios
+        </h2>
         <div
           className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6"
           aria-live="polite"
@@ -79,7 +113,6 @@ export function COLACalculator() {
                     : "border-2 border-gray-200 bg-white"
                 }`}
               >
-                {/* Header */}
                 <div className="mb-4">
                   <div className="flex items-center gap-2 mb-1">
                     {isMid && (
@@ -96,12 +129,10 @@ export function COLACalculator() {
                   </p>
                 </div>
 
-                {/* COLA Percentage */}
                 <p className="text-4xl md:text-5xl font-bold text-blue-800 mb-4">
                   {scenario.percentage}%
                 </p>
 
-                {/* Results */}
                 <div className="space-y-3">
                   <div>
                     <p className="text-base text-gray-600">
@@ -145,7 +176,6 @@ export function COLACalculator() {
           })}
         </div>
 
-        {/* Medicare note */}
         <p className="mt-4 text-base text-gray-600">
           *Medicare Part B premium: ${COLA_DATA.medicarePremium}/mo (2026
           actual) → ${COLA_DATA.projectedMedicarePremium}/mo (2027 projected).

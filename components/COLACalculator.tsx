@@ -76,9 +76,15 @@ export function COLACalculator() {
               step="0.01"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              className="w-full h-16 text-3xl font-semibold pl-12 pr-4 border-2 border-gray-300 rounded-lg focus:border-blue-800 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+              className="w-full h-16 text-3xl font-semibold pl-12 pr-24 border-2 border-gray-300 rounded-lg focus:border-blue-800 focus:ring-2 focus:ring-blue-200 focus:outline-none"
               aria-describedby="benefit-hint"
             />
+            <span
+              aria-hidden="true"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-lg text-gray-500 font-medium pointer-events-none select-none"
+            >
+              /month
+            </span>
           </div>
           <p id="benefit-hint" className="mt-3 text-base text-gray-600">
             The average retired worker receives ${COLA_DATA.averageBenefit}/month in {COLA_DATA.currentYear}.
@@ -130,7 +136,7 @@ export function COLACalculator() {
                 </div>
 
                 <p className="text-4xl md:text-5xl font-bold text-blue-800 mb-4">
-                  {scenario.percentage}%
+                  {scenario.percentage.toFixed(1)}%
                 </p>
 
                 <div className="space-y-3">

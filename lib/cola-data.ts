@@ -20,8 +20,17 @@ export const COLA_DATA = {
   targetYear: 2027,
   averageBenefit: 2024.77,
   medicarePremium: 202.90, // 2026 actual
-  projectedMedicarePremium: 213.05, // 2027 estimated (~5% increase)
+  // Placeholder: update once CMS announces the 2027 Part B premium (~Nov 2026)
+  projectedMedicarePremium: 213.05,
   currentCOLA: 2.8, // 2026 COLA
+
+  // ===== 邮件订阅 =====
+  // Paste your Mailchimp/ConvertKit form action URL when ready.
+  // Empty string = local-only capture (subscribers saved to localStorage).
+  newsletterFormAction: "",
+
+  // ===== Analytics =====
+  googleAnalyticsId: "G-Y2TLSCY5MD",
 
   // ===== 关键日期 =====
   officialAnnouncement: "2026-10-15",

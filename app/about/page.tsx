@@ -9,9 +9,40 @@ export const metadata: Metadata = {
   },
 };
 
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About COLA Calculator",
+  url: "https://colacalculator.com/about",
+  mainEntity: {
+    "@type": "Organization",
+    name: "COLA Calculator",
+    url: "https://colacalculator.com",
+    description:
+      "Independent tool for Social Security beneficiaries to estimate the impact of the annual COLA on their monthly benefit.",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://colacalculator.com" },
+    { "@type": "ListItem", position: 2, name: "About" },
+  ],
+};
+
 export default function AboutPage() {
   return (
     <article className="py-12 md:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
           About COLA Calculator

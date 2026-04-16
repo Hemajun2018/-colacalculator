@@ -17,8 +17,24 @@ const articleSchema = {
   headline: "What a Low 2027 COLA Means for Your Benefits",
   datePublished: "2026-04-16",
   dateModified: COLA_DATA.dataAsOf,
-  author: { "@type": "Organization", name: "COLA Calculator" },
-  publisher: { "@type": "Organization", name: "COLA Calculator" },
+  author: {
+    "@type": "Organization",
+    name: "COLA Calculator Editorial",
+    url: "https://colacalculator.com/about",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "COLA Calculator",
+    url: "https://colacalculator.com",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://colacalculator.com/icon.svg",
+    },
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://colacalculator.com/low-social-security-cola-2027",
+  },
 };
 
 const breadcrumbSchema = {
@@ -129,15 +145,15 @@ export default function LowCOLAPage() {
             </h2>
             <div className="space-y-6">
               {[
-                { title: "1. Delay claiming Social Security", text: "If you haven&apos;t started benefits yet, each year you delay past full retirement age (up to 70) increases your benefit by 8%." },
+                { title: "1. Delay claiming Social Security", text: "If you haven\u2019t started benefits yet, each year you delay past full retirement age (up to 70) increases your benefit by 8%." },
                 { title: "2. Review Medicare Advantage plans annually", text: "Medicare Advantage plans change each year. An annual review during Open Enrollment (Oct 15–Dec 7) could lower premiums." },
                 { title: "3. Check for state-level programs", text: "Many states offer property tax relief, utility assistance, and prescription drug programs for seniors." },
-                { title: "4. Consider part-time work", text: "Part-time or consulting work doesn&apos;t reduce benefits after full retirement age and can fill the COLA gap." },
+                { title: "4. Consider part-time work", text: "Part-time or consulting work doesn\u2019t reduce benefits after full retirement age and can fill the COLA gap." },
                 { title: "5. Optimize your tax situation", text: "Up to 85% of Social Security can be taxable. Strategic withdrawals from traditional vs. Roth accounts can reduce this." },
               ].map((item, i) => (
                 <div key={i} className="border-l-4 border-blue-800 pl-4">
                   <h3 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h3>
-                  <p className="text-lg text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: item.text }} />
+                  <p className="text-lg text-gray-600 leading-relaxed">{item.text}</p>
                 </div>
               ))}
             </div>

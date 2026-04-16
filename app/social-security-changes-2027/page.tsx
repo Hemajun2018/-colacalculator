@@ -17,8 +17,24 @@ const articleSchema = {
   headline: "Social Security Changes in 2027: What Retirees Need to Know",
   datePublished: "2026-04-16",
   dateModified: COLA_DATA.dataAsOf,
-  author: { "@type": "Organization", name: "COLA Calculator" },
-  publisher: { "@type": "Organization", name: "COLA Calculator" },
+  author: {
+    "@type": "Organization",
+    name: "COLA Calculator Editorial",
+    url: "https://colacalculator.com/about",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "COLA Calculator",
+    url: "https://colacalculator.com",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://colacalculator.com/icon.svg",
+    },
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://colacalculator.com/social-security-changes-2027",
+  },
 };
 
 const breadcrumbSchema = {

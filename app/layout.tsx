@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { COLA_DATA } from "@/lib/cola-data";
+
+const GA_ID = COLA_DATA.googleAnalyticsId;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://colacalculator.com"),
@@ -12,21 +16,13 @@ export const metadata: Metadata = {
   },
   description:
     "Latest 2027 COLA projections (2.8%–4.0%). Enter your current benefit to see your estimated 2027 Social Security increase, including Medicare deductions.",
-  keywords: [
-    "social security cola 2027",
-    "2027 social security cola forecast",
-    "social security cola calculator",
-    "social security cola projection 2027",
-    "social security cost of living 2027",
-  ],
   authors: [{ name: "COLA Calculator" }],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://colacalculator.com",
     siteName: "COLA Calculator",
-    title:
-      "2027 Social Security COLA Forecast & Calculator",
+    title: "2027 Social Security COLA Forecast & Calculator",
     description:
       "Latest 2027 COLA projections (2.8%–4.0%). Calculate your estimated 2027 benefit increase.",
   },
@@ -88,6 +84,20 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );

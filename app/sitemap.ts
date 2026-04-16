@@ -47,11 +47,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.3,
     },
-    {
-      url: "https://colacalculator.com/privacy",
-      lastModified,
-      changeFrequency: "yearly",
-      priority: 0.1,
-    },
   ];
 }

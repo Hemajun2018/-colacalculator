@@ -4,7 +4,6 @@ import { COLACalculator } from "@/components/COLACalculator";
 import { CountdownTimer } from "@/components/CountdownTimer";
 import { COLAChart } from "@/components/COLAChart";
 import { FAQSection } from "@/components/FAQSection";
-import { EmailSignup } from "@/components/EmailSignup";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -127,8 +126,24 @@ export default function HomePage() {
       {/* FAQ Section */}
       <FAQSection />
 
-      {/* Email Signup */}
-      <EmailSignup />
+      {/* Bottom CTA */}
+      <section className="py-12 md:py-16 bg-blue-50">
+        <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            Stay Updated on COLA Changes
+          </h2>
+          <p className="text-lg text-gray-600 mb-6">
+            New CPI data is released monthly. Bookmark this page to track the
+            latest 2027 COLA projections as they evolve.
+          </p>
+          <Link
+            href="#calculator"
+            className="inline-block bg-blue-800 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-900 min-h-[44px]"
+          >
+            Calculate Your Benefit →
+          </Link>
+        </div>
+      </section>
     </>
   );
 }

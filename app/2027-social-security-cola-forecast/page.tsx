@@ -108,7 +108,7 @@ export default function ForecastPage() {
                       <tr key={s.id}>
                         <td className="py-3 pr-4 text-gray-900">{s.label} ({s.source})</td>
                         <td className="py-3 pr-4 font-semibold text-blue-800">{s.percentage}%</td>
-                        <td className="py-3 text-emerald-600 font-semibold">+${increase.toFixed(2)}</td>
+                        <td className="py-3 text-emerald-700 font-semibold">+${increase.toFixed(2)}</td>
                       </tr>
                     );
                   })}

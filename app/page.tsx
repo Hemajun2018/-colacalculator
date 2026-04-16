@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { COLACalculator } from "@/components/COLACalculator";
+import { CalculatorHero } from "@/components/CalculatorHero";
 import { COLAChart } from "@/components/COLAChart";
 import { FAQSection } from "@/components/FAQSection";
 import Link from "next/link";
@@ -37,7 +37,7 @@ export default function HomePage() {
       />
 
       {/* Hero + Calculator */}
-      <COLACalculator />
+      <CalculatorHero />
 
       {/* COLA History Chart */}
       <COLAChart />

@@ -92,7 +92,7 @@ export default function LowCOLAPage() {
               <div className="space-y-3 text-lg">
                 <div className="flex justify-between items-center pb-3 border-b border-amber-200">
                   <span className="text-gray-600">Gross monthly increase ({lowCola}%)</span>
-                  <span className="font-bold text-emerald-600">+${grossIncrease.toFixed(2)}</span>
+                  <span className="font-bold text-emerald-700">+${grossIncrease.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between items-center pb-3 border-b border-amber-200">
                   <span className="text-gray-600">Medicare Part B premium increase</span>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const links = [
-  { href: "/2027-social-security-cola-forecast", label: "Forecast" },
+  { href: "/2027-social-security-cola-forecast", label: "2027 COLA" },
   { href: "/social-security-cola-history", label: "COLA History" },
   { href: "/how-is-social-security-cola-calculated", label: "How It Works" },
   { href: "/about", label: "About" },

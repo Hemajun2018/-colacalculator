@@ -41,7 +41,7 @@ export function Header() {
               href="/2027-social-security-cola-forecast"
               className="text-base text-gray-600 hover:text-blue-800"
             >
-              Forecast
+              2027 COLA
             </Link>
             <Link
               href="/social-security-cola-history"

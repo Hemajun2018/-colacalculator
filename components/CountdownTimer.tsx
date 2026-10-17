@@ -12,6 +12,7 @@ export function CountdownTimer() {
   const [state, setState] = useState<State>({ phase: "loading" });
 
   useEffect(() => {
+    if (COLA_DATA.isOfficial) return;
     const target = new Date(COLA_DATA.nextCPIRelease).getTime();
 
     function update() {
@@ -34,6 +35,15 @@ export function CountdownTimer() {
     const interval = setInterval(update, 60000);
     return () => clearInterval(interval);
   }, []);
+
+  if (COLA_DATA.isOfficial) {
+    return (
+      <p className="text-base text-gray-600">
+        Payments with the new COLA begin{" "}
+        <span className="font-semibold text-gray-900">January 2027</span>
+      </p>
+    );
+  }
 
   if (state.phase === "loading") {
     return (

@@ -2,12 +2,7 @@ import { COLA_DATA } from "@/lib/cola-data";
 
 export function COLAChart() {
   const recent = COLA_DATA.historicalCOLAs.slice(0, 10).reverse();
-  const forecastLow = COLA_DATA.forecastRange.low;
-  const forecastHigh = COLA_DATA.forecastRange.high;
-  const maxCola = Math.max(
-    ...recent.map((d) => d.cola),
-    forecastHigh
-  );
+  const maxCola = Math.max(...recent.map((d) => d.cola));
 
   return (
     <section className="py-12 md:py-16 bg-gray-50">
@@ -17,7 +12,7 @@ export function COLAChart() {
         </h2>
         <p className="text-lg text-gray-600 mb-8">
           Social Security cost-of-living adjustments over the past 10 years,
-          with the current 2027 forecast range.
+          including the official 2027 COLA of {COLA_DATA.officialCOLA}%.
         </p>
 
         {/* Bar chart - pure CSS */}
@@ -25,50 +20,47 @@ export function COLAChart() {
           {recent.map((item) => {
             const heightPercent =
               maxCola > 0 ? (item.cola / maxCola) * 100 : 0;
+            const is2027 = item.year === COLA_DATA.targetYear;
 
             return (
               <div
                 key={item.year}
                 className="flex-1 flex flex-col items-center justify-end h-full"
               >
-                <span className="text-base font-semibold text-gray-900 mb-1">
+                <span
+                  className={`text-base font-semibold mb-1 ${
+                    is2027 ? "text-blue-800" : "text-gray-900"
+                  }`}
+                >
                   {item.cola}%
                 </span>
                 <div
-                  className="w-full bg-blue-800 rounded-t-md transition-all duration-300"
+                  className={`w-full rounded-t-md transition-all duration-300 ${
+                    is2027
+                      ? "bg-blue-600 ring-2 ring-blue-800"
+                      : "bg-blue-800"
+                  }`}
                   style={{ height: `${Math.max(heightPercent, 2)}%` }}
                   role="img"
-                  aria-label={`${item.year}: ${item.cola}% COLA`}
+                  aria-label={`${item.year}: ${item.cola}% COLA${
+                    is2027 ? " (official)" : ""
+                  }`}
                 />
-                <span className="text-sm md:text-base text-gray-600 mt-2 font-medium">
+                <span
+                  className={`text-sm md:text-base mt-2 font-medium ${
+                    is2027 ? "text-blue-800 font-semibold" : "text-gray-600"
+                  }`}
+                >
                   {item.year}
                 </span>
               </div>
             );
           })}
-
-          {/* 2027 forecast — dashed band */}
-          <div className="flex-1 flex flex-col items-center justify-end h-full">
-            <span className="text-base font-semibold text-blue-800 mb-1 whitespace-nowrap">
-              {forecastLow}–{forecastHigh}%
-            </span>
-            <div
-              className="w-full rounded-t-md border-2 border-dashed border-blue-800 bg-blue-100"
-              style={{
-                height: `${Math.max((forecastHigh / maxCola) * 100, 2)}%`,
-              }}
-              role="img"
-              aria-label={`2027 forecast range: ${forecastLow}% to ${forecastHigh}%`}
-            />
-            <span className="text-sm md:text-base text-blue-800 mt-2 font-semibold">
-              2027*
-            </span>
-          </div>
         </div>
 
         <p className="text-base text-gray-600 mb-4">
-          *2027 value is a forecast range based on current CPI-W data, not an
-          official SSA figure.
+          *2027 is the official SSA figure, announced{" "}
+          {COLA_DATA.announcementLabel}.
         </p>
 
         <div className="text-center">
@@ -76,7 +68,7 @@ export function COLAChart() {
             href="/social-security-cola-history"
             className="inline-block text-lg text-blue-800 hover:underline font-semibold"
           >
-            View full COLA history (1975–2026) →
+            View full COLA history (1975–2027) →
           </a>
         </div>
       </div>

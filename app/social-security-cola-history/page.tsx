@@ -3,9 +3,9 @@ import { COLA_DATA } from "@/lib/cola-data";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Social Security COLA History: Every Increase from 1975 to 2026",
+  title: "Social Security COLA History: Every Increase from 1975 to 2027",
   description:
-    "Complete Social Security COLA history from 1975 to 2026. See every annual increase, compare 2026 COLA (2.8%) to past years, and understand inflation trends.",
+    "Complete Social Security COLA history from 1975 to 2027. See every annual increase, compare the official 2027 COLA (3.6%) to past years, and understand inflation trends.",
   alternates: {
     canonical: "https://colacalculator.com/social-security-cola-history",
   },
@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 const datasetSchema = {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  name: "Social Security COLA History 1975-2026",
-  description: "Annual Social Security Cost-of-Living Adjustment percentages from 1975 through 2026.",
+  name: "Social Security COLA History 1975-2027",
+  description: "Annual Social Security Cost-of-Living Adjustment percentages from 1975 through 2027.",
   creator: { "@type": "Organization", name: "COLA Calculator" },
-  temporalCoverage: "1975/2026",
+  temporalCoverage: "1975/2027",
 };
 
 const breadcrumbSchema = {
@@ -59,7 +59,7 @@ export default function HistoryPage() {
       <article className="py-12 md:py-16">
         <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-            Social Security COLA History (1975–2026)
+            Social Security COLA History (1975–2027)
           </h1>
           <p className="text-lg text-gray-600 mb-8 leading-relaxed">
             Every Social Security Cost-of-Living Adjustment since Congress enacted automatic COLAs in 1975. The annual increase is based on year-over-year changes in the Consumer Price Index for Urban Wage Earners and Clerical Workers (CPI-W).
@@ -73,16 +73,26 @@ export default function HistoryPage() {
               <p className="text-base text-gray-600">1980</p>
             </div>
             <div className="bg-blue-50 rounded-xl p-6">
-              <p className="text-base text-gray-600 mb-1">Average COLA (50 years)</p>
+              <p className="text-base text-gray-600 mb-1">Average COLA</p>
               <p className="text-3xl font-bold text-blue-800">{avgCola.toFixed(1)}%</p>
-              <p className="text-base text-gray-600">1975–2026</p>
+              <p className="text-base text-gray-600">1975–2027</p>
             </div>
             <div className="bg-blue-50 rounded-xl p-6">
-              <p className="text-base text-gray-600 mb-1">2026 COLA</p>
-              <p className="text-3xl font-bold text-blue-800">{COLA_DATA.currentCOLA}%</p>
-              <p className="text-base text-gray-600">Current</p>
+              <p className="text-base text-gray-600 mb-1">2027 COLA</p>
+              <p className="text-3xl font-bold text-blue-800">{COLA_DATA.officialCOLA}%</p>
+              <p className="text-base text-gray-600">Official</p>
             </div>
           </div>
+
+          {/* 2027 COLA detail */}
+          <section className="mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              The 2027 Social Security COLA
+            </h2>
+            <p className="text-lg text-gray-600 leading-relaxed mb-4">
+              The 2027 COLA is <strong className="text-gray-900">{COLA_DATA.officialCOLA}%</strong>, announced on {COLA_DATA.announcementLabel} — the largest increase since 2023. For the average retired worker receiving ${COLA_DATA.averageBenefit.toLocaleString()}/month, this means an increase of about $73/month (about $875/year).
+            </p>
+          </section>
 
           {/* 2026 COLA detail */}
           <section className="mb-12">
@@ -100,7 +110,7 @@ export default function HistoryPage() {
           {/* Full table */}
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-              Complete COLA History (1975–2026)
+              Complete COLA History (1975–2027)
             </h2>
 
             <div className="overflow-x-auto">
@@ -133,16 +143,16 @@ export default function HistoryPage() {
           {/* CTA */}
           <div className="bg-blue-50 rounded-xl p-6 md:p-8 text-center">
             <h3 className="text-xl font-bold text-gray-900 mb-2">
-              What About 2027?
+              Calculate Your 2027 Benefit
             </h3>
             <p className="text-lg text-gray-600 mb-4">
-              See the latest 2027 COLA forecast and calculate your estimated benefit increase.
+              The 2027 COLA is official at 3.6% — see your new monthly benefit amount.
             </p>
             <Link
               href="/"
               className="inline-block bg-blue-800 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-900 min-h-[44px]"
             >
-              View 2027 Forecast →
+              Calculate Your Benefit →
             </Link>
           </div>
         </div>

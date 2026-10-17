@@ -11,26 +11,26 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://colacalculator.com"),
   title: {
     default:
-      "Social Security COLA 2027: Forecast & Free Calculator",
+      "Social Security COLA 2027: Official 3.6% & Free Calculator",
     template: "%s | COLA Calculator",
   },
   description:
-    "Social Security COLA 2027 forecast: 2.8%–3.2%. Enter your current benefit to see your estimated 2027 Social Security increase, after Medicare Part B deductions.",
+    "Social Security COLA 2027 is officially 3.6%. Enter your current benefit to see your 2027 Social Security increase, after Medicare Part B deductions.",
   authors: [{ name: "COLA Calculator" }],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://colacalculator.com",
     siteName: "COLA Calculator",
-    title: "Social Security COLA 2027: Forecast & Free Calculator",
+    title: "Social Security COLA 2027: Official 3.6% & Free Calculator",
     description:
-      "Social Security COLA 2027 forecast (2.8%–3.2%). Free calculator — see your estimated 2027 benefit increase after Medicare.",
+      "Social Security COLA 2027 is officially 3.6%. Free calculator — see your 2027 benefit increase after Medicare.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Social Security COLA 2027: Forecast & Free Calculator",
+    title: "Social Security COLA 2027: Official 3.6% & Free Calculator",
     description:
-      "Social Security COLA 2027 forecast (2.8%–3.2%). Free calculator — see your estimated 2027 benefit increase.",
+      "Social Security COLA 2027 is officially 3.6%. Free calculator — see your estimated 2027 benefit increase.",
   },
   other: {
     "geo.region": "US",
@@ -43,7 +43,7 @@ const organizationSchema = {
   name: "COLA Calculator",
   url: "https://colacalculator.com",
   description:
-    "Free Social Security COLA calculator and forecast tool for retirees.",
+    "Free Social Security COLA calculator for retirees — now with the official 2027 COLA of 3.6%.",
 };
 
 const websiteSchema = {

@@ -3,17 +3,22 @@
 
 export const COLA_DATA = {
   // ===== 每月更新区域 =====
-  dataAsOf: "2026-04-16",
+  dataAsOf: "2026-10-14",
   nextCPIRelease: "2026-05-13T08:30:00-04:00", // BLS 8:30 AM ET
   nextCPILabel: "May 13, 2026",
 
+  // ===== 官方公布状态 =====
+  isOfficial: true, // SSA 已官宣 2027 COLA，页面显示官方口径
+  officialCOLA: 3.6,
+  officialSource: "SSA",
+  announcementDate: "2026-10-14",
+  announcementLabel: "October 14, 2026",
+
   scenarios: [
-    { id: "low", label: "Conservative", source: "TSCL", percentage: 2.8 },
-    { id: "mid", label: "Moderate", source: "Johnson", percentage: 3.2 },
-    { id: "high", label: "High", source: "TSCL April", percentage: 4.0 },
+    { id: "official", label: "Official", source: "SSA", percentage: 3.6 },
   ] as const,
 
-  forecastRange: { low: 2.8, high: 3.2 },
+  forecastRange: { low: 3.6, high: 3.6 },
 
   // ===== 年度更新区域 =====
   currentYear: 2026,
@@ -33,11 +38,12 @@ export const COLA_DATA = {
   googleAnalyticsId: "G-Y2TLSCY5MD",
 
   // ===== 关键日期 =====
-  officialAnnouncement: "2026-10-15",
+  officialAnnouncement: "2026-10-14",
   effectiveDate: "2027-01-01",
 
   // ===== 历史 COLA 数据 =====
   historicalCOLAs: [
+    { year: 2027, cola: 3.6 },
     { year: 2026, cola: 2.8 },
     { year: 2025, cola: 2.5 },
     { year: 2024, cola: 3.2 },

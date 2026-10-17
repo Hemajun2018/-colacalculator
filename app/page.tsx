@@ -18,7 +18,7 @@ const softwareAppSchema = {
   operatingSystem: "Web",
   url: "https://colacalculator.com",
   description:
-    "Free calculator to estimate your 2027 Social Security benefit increase based on the latest COLA projections.",
+    "Free calculator to estimate your 2027 Social Security benefit increase based on the official 2027 COLA of 3.6%.",
   offers: {
     "@type": "Offer",
     price: "0",
@@ -42,32 +42,31 @@ export default function HomePage() {
       {/* COLA History Chart */}
       <COLAChart />
 
-      {/* What Experts Are Saying */}
+      {/* Official announcement recap */}
       <section className="py-12 md:py-16">
         <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-            What Experts Are Saying
+            2027 COLA: Officially 3.6%
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-gray-50 rounded-xl p-6">
               <p className="text-lg text-gray-900 font-semibold mb-2">
-                The Senior Citizens League (TSCL)
+                The Announcement
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Projects a 2027 COLA of approximately{" "}
-                <strong>2.8%</strong>, based on CPI-W trends through
-                early 2026. A revised April estimate suggests it could reach as
-                high as <strong>4.0%</strong> if inflation persists.
+                The SSA announced a <strong>3.6%</strong> COLA for 2027 on
+                October 14, 2026 — the largest increase since 2023. About 76
+                million Americans will see bigger checks starting January 2027.
               </p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6">
               <p className="text-lg text-gray-900 font-semibold mb-2">
-                Mary Johnson, Independent Analyst
+                How Predictions Compared
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Estimates a <strong>3.2%</strong> COLA for 2027, citing moderate
-                inflation driven by energy and food costs. This would translate
-                to approximately $64.79 more per month for the average retiree.
+                Pre-announcement forecasts ranged from <strong>2.8%</strong>{" "}
+                (TSCL) to <strong>4.0%</strong>. The official 3.6% came in
+                above most estimates, driven by higher energy costs in Q3 2026.
               </p>
             </div>
           </div>
@@ -76,7 +75,7 @@ export default function HomePage() {
               href="/2027-social-security-cola-forecast"
               className="inline-block text-lg text-blue-800 hover:underline font-semibold"
             >
-              Read full 2027 forecast analysis →
+              Read the pre-announcement analysis →
             </Link>
           </div>
         </div>
@@ -89,11 +88,11 @@ export default function HomePage() {
       <section className="py-12 md:py-16 bg-blue-50">
         <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-            Stay Updated on COLA Changes
+            The 2027 COLA Is Official
           </h2>
           <p className="text-lg text-gray-600 mb-6">
-            New CPI data is released monthly. Bookmark this page to track the
-            latest 2027 COLA projections as they evolve.
+            3.6% — the largest increase since 2023. Use the calculator above
+            to see your new monthly benefit.
           </p>
           <Link
             href="#calculator"

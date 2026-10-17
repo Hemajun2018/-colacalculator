@@ -5,7 +5,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "2027 Social Security COLA Forecast: Latest Predictions & What to Expect",
   description:
-    "Latest 2027 Social Security COLA predictions from leading analysts. Current forecast: 2.8%–4.0%. Updated monthly with new CPI-W data.",
+    "Pre-announcement 2027 Social Security COLA predictions from leading analysts (2.8%–4.0%). The official 2027 COLA is 3.6%, announced by SSA on October 14, 2026.",
   alternates: {
     canonical: "https://colacalculator.com/2027-social-security-cola-forecast",
   },
@@ -82,6 +82,25 @@ export default function ForecastPage() {
               year: "numeric",
             })}
           </p>
+
+          {/* Official announcement banner */}
+          <div className="bg-blue-50 border-2 border-blue-800 rounded-xl p-6 mb-8">
+            <p className="text-lg font-bold text-blue-900 mb-2">
+              Update — October 14, 2026: The 2027 COLA is officially 3.6%
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              The SSA has announced the official 2027 COLA of{" "}
+              <strong>3.6%</strong> — the largest increase since 2023. The
+              predictions below were published before the announcement and are
+              kept for reference.{" "}
+              <Link
+                href="/"
+                className="text-blue-800 hover:underline font-semibold"
+              >
+                Calculate your new benefit →
+              </Link>
+            </p>
+          </div>
 
           {/* Current Predictions */}
           <section className="mb-12">

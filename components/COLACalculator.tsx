@@ -14,22 +14,8 @@ export function COLACalculator() {
   const isValidRange = benefit >= 50 && benefit <= 5000;
   const showWarning = deferredInput !== "" && benefit > 0 && !isValidRange;
 
-  const midScenario = COLA_DATA.scenarios.find((s) => s.id === "mid")!;
-  const midResult = calculateCOLA(benefit, midScenario.percentage);
-
-  const handleSeeResults = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    (
-      window as unknown as {
-        gtag?: (command: string, name: string, params?: Record<string, unknown>) => void;
-      }
-    ).gtag?.("event", "see_all_scenarios_click", {
-      benefit_amount: Math.round(benefit),
-    });
-    document
-      .getElementById("scenarios")
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const officialScenario = COLA_DATA.scenarios[0];
+  const officialResult = calculateCOLA(benefit, officialScenario.percentage);
 
   return (
     <>
@@ -80,22 +66,15 @@ export function COLACalculator() {
           >
             <div>
               <p className="text-base text-gray-600">
-                Moderate {midScenario.percentage.toFixed(1)}% forecast
+                Official {officialScenario.percentage.toFixed(1)}% COLA
               </p>
               <p className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
-                {formatCurrency(midResult.grossMonthlyBenefit)}/mo
+                {formatCurrency(officialResult.grossMonthlyBenefit)}/mo
                 <span className="ml-2 text-lg md:text-xl font-semibold text-emerald-700 align-middle">
-                  +{formatCurrency(midResult.monthlyIncrease)}/mo
+                  +{formatCurrency(officialResult.monthlyIncrease)}/mo
                 </span>
               </p>
             </div>
-            <a
-              href="#scenarios"
-              onClick={handleSeeResults}
-              className="inline-flex items-center min-h-[44px] px-4 py-2 text-lg font-semibold text-blue-800 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100"
-            >
-              See all 3 scenarios ↓
-            </a>
           </div>
         )}
       </div>
@@ -105,7 +84,7 @@ export function COLACalculator() {
         id="scenarios"
         className="text-xl md:text-2xl font-bold text-gray-900 mb-4 scroll-mt-20"
       >
-        Your Estimated 2027 Benefit Under 3 Scenarios
+        Your Estimated 2027 Benefit
       </h2>
       <div
         className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6"
@@ -114,22 +93,22 @@ export function COLACalculator() {
       >
         {COLA_DATA.scenarios.map((scenario) => {
           const result = calculateCOLA(benefit, scenario.percentage);
-          const isMid = scenario.id === "mid";
+          const isOfficial = scenario.id === "official";
 
           return (
             <div
               key={scenario.id}
               className={`rounded-xl p-6 md:p-8 ${
-                isMid
+                isOfficial
                   ? "border-2 border-blue-800 bg-blue-50 ring-2 ring-blue-800"
                   : "border-2 border-gray-200 bg-white"
               }`}
             >
               <div className="mb-4">
                 <div className="flex items-center gap-2 mb-1">
-                  {isMid && (
+                  {isOfficial && (
                     <span className="text-xs font-bold text-blue-800 bg-blue-100 px-2 py-0.5 rounded uppercase tracking-wide">
-                      Most Likely
+                      Official
                     </span>
                   )}
                 </div>

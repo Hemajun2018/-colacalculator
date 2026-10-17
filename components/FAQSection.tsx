@@ -2,13 +2,13 @@ import { COLA_DATA } from "@/lib/cola-data";
 
 const faqs = [
   {
-    question: "What is the projected COLA for 2027?",
-    answer: `Based on current CPI-W data, the 2027 Social Security COLA is projected to be between ${COLA_DATA.forecastRange.low}% and ${COLA_DATA.forecastRange.high}%. The official announcement will be made by SSA in mid-October 2026.`,
+    question: "What is the official COLA for 2027?",
+    answer: `The Social Security Administration announced a ${COLA_DATA.officialCOLA}% COLA for 2027 on ${COLA_DATA.announcementLabel} — the largest increase since 2023.`,
   },
   {
-    question: "When will the 2027 COLA be announced?",
+    question: "When was the 2027 COLA announced?",
     answer:
-      "The Social Security Administration (SSA) typically announces the annual COLA in mid-October. The 2027 COLA is expected to be announced around October 15, 2026, based on Q3 2026 CPI-W data.",
+      "The Social Security Administration announced the 2027 COLA on October 14, 2026, based on Q3 2026 CPI-W data. Increased payments begin in January 2027 (SSI payments go out on December 31, 2026).",
   },
   {
     question: "How is COLA calculated?",
@@ -16,8 +16,8 @@ const faqs = [
       "COLA is based on the Consumer Price Index for Urban Wage Earners and Clerical Workers (CPI-W). SSA compares the average CPI-W for July, August, and September (Q3) of the current year to Q3 of the previous year. The percentage increase becomes the COLA for the following January.",
   },
   {
-    question: "Will the 2027 COLA be higher than 2026?",
-    answer: `The 2026 COLA was ${COLA_DATA.currentCOLA}%. Current projections suggest the 2027 COLA may be similar or slightly higher, ranging from ${COLA_DATA.forecastRange.low}% to ${COLA_DATA.forecastRange.high}%, depending on inflation trends through Q3 2026.`,
+    question: "Is the 2027 COLA higher than 2026?",
+    answer: `Yes. The 2027 COLA is ${COLA_DATA.officialCOLA}%, up from ${COLA_DATA.currentCOLA}% in 2026 — the largest increase in four years.`,
   },
   {
     question: "What does a low COLA mean for retirees?",

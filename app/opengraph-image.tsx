@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { COLA_DATA } from "@/lib/cola-data";
 
 export const runtime = "edge";
-export const alt = "2027 Social Security COLA Forecast & Calculator";
+export const alt = "2027 Social Security COLA: Official 3.6% & Calculator";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -55,7 +55,7 @@ export default function OGImage() {
             border: "4px solid #1E40AF",
           }}
         >
-          <div style={{ fontSize: 32, color: "#475569" }}>Forecast Range</div>
+          <div style={{ fontSize: 32, color: "#475569" }}>Official COLA</div>
           <div
             style={{
               fontSize: 72,
@@ -63,7 +63,7 @@ export default function OGImage() {
               color: "#1E40AF",
             }}
           >
-            {COLA_DATA.forecastRange.low}%–{COLA_DATA.forecastRange.high}%
+            {COLA_DATA.officialCOLA}%
           </div>
         </div>
         <div

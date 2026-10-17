@@ -32,7 +32,7 @@ export function Footer() {
                   href="/2027-social-security-cola-forecast"
                   className="text-base text-blue-800 hover:underline"
                 >
-                  Forecast &amp; Predictions
+                  2027 COLA
                 </Link>
               </li>
               <li>

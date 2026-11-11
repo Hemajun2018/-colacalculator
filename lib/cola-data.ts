@@ -37,6 +37,11 @@ export const COLA_DATA = {
   // ===== Analytics =====
   googleAnalyticsId: "G-Y2TLSCY5MD",
 
+  // ===== AdSense =====
+  // Publisher ID from AdSense, e.g. "ca-pub-1234567890123456".
+  // Empty string = no ad script, no ads.txt.
+  adsenseClientId: "",
+
   // ===== 关键日期 =====
   officialAnnouncement: "2026-10-14",
   effectiveDate: "2027-01-01",

@@ -20,7 +20,7 @@ export default function PrivacyPage() {
           Privacy Policy
         </h1>
         <p className="text-base text-gray-600 mb-8">
-          Last updated: April 16, 2026
+          Last updated: November 11, 2026
         </p>
 
         <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
@@ -47,7 +47,49 @@ export default function PrivacyPage() {
               Cookies
             </h2>
             <p>
-              We use essential cookies to ensure the site functions properly and analytics cookies to improve our service. You can disable cookies in your browser settings at any time.
+              We use essential cookies to ensure the site functions properly, analytics cookies to improve our service, and advertising cookies to show ads (see below). You can disable cookies in your browser settings at any time.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">
+              Advertising
+            </h2>
+            <p className="mb-3">
+              We use Google AdSense to display ads on this site. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other websites.
+            </p>
+            <p className="mb-3">
+              Google&apos;s use of advertising cookies enables it and its partners to serve ads to you based on your visits to this site and/or other sites on the Internet. Learn more in{" "}
+              <a
+                href="https://policies.google.com/technologies/partner-sites"
+                className="text-blue-800 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                how Google uses information from sites that use its services
+              </a>
+              .
+            </p>
+            <p>
+              You may opt out of personalized advertising by visiting{" "}
+              <a
+                href="https://adssettings.google.com"
+                className="text-blue-800 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Ads Settings
+              </a>
+              . You can also opt out of some third-party vendors&apos; use of cookies for personalized advertising at{" "}
+              <a
+                href="https://www.aboutads.info/choices/"
+                className="text-blue-800 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                www.aboutads.info
+              </a>
+              . Ads never receive the values you enter in the calculator.
             </p>
           </section>
 
@@ -74,7 +116,14 @@ export default function PrivacyPage() {
               Contact
             </h2>
             <p>
-              For privacy-related questions, please contact us through the about page.
+              For privacy-related questions, email us at{" "}
+              <a
+                href="mailto:support@colacalculator.com"
+                className="text-blue-800 hover:underline"
+              >
+                support@colacalculator.com
+              </a>
+              .
             </p>
           </section>
         </div>

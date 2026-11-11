@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { COLA_DATA } from "@/lib/cola-data";
 
 const GA_ID = COLA_DATA.googleAnalyticsId;
+const ADSENSE_ID: string = COLA_DATA.adsenseClientId;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://colacalculator.com"),
@@ -34,6 +35,7 @@ export const metadata: Metadata = {
   },
   other: {
     "geo.region": "US",
+    ...(ADSENSE_ID ? { "google-adsense-account": ADSENSE_ID } : {}),
   },
 };
 
@@ -73,6 +75,15 @@ export default function RootLayout({
             __html: JSON.stringify(websiteSchema),
           }}
         />
+        {ADSENSE_ID && (
+          // Plain <script> (not next/script): AdSense rejects the data-nscript attribute
+          // and needs the tag in the static <head> for site verification.
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_ID}`}
+            crossOrigin="anonymous"
+          />
+        )}
       </head>
       <body
         className="antialiased text-gray-900 bg-white"

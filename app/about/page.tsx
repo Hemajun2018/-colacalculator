@@ -121,11 +121,18 @@ export default function AboutPage() {
         <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Contact</h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            For questions, corrections, or feedback about the calculator, please{" "}
+            For questions, corrections, or feedback about the calculator, email us at{" "}
+            <a
+              href="mailto:support@colacalculator.com"
+              className="text-blue-800 hover:underline"
+            >
+              support@colacalculator.com
+            </a>
+            . See our{" "}
             <Link href="/privacy" className="text-blue-800 hover:underline">
-              see our privacy policy
+              privacy policy
             </Link>{" "}
-            or reach out through the contact information provided there.
+            for how we handle data.
           </p>
         </section>
       </div>

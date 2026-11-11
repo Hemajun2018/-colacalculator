@@ -39,7 +39,9 @@ export const COLA_DATA = {
 
   // ===== AdSense =====
   // Publisher ID from AdSense, e.g. "ca-pub-1234567890123456".
-  // Empty string = no ad script, no ads.txt.
+  // Empty string = no ad script.
+  // When set, also create public/ads.txt with this one line (pub ID without "ca-"):
+  //   google.com, pub-1234567890123456, DIRECT, f08c47fec0942fa0
   adsenseClientId: "",
 
   // ===== 关键日期 =====

@@ -106,7 +106,7 @@ export default function LowCOLAPage() {
                 </div>
               </div>
               <p className="text-base text-gray-600 mt-4">
-                Based on average retired worker benefit (${COLA_DATA.averageBenefit}/mo). Medicare Part B: ${COLA_DATA.medicarePremium} (2026) → ${COLA_DATA.projectedMedicarePremium} (2027 projected).
+                Based on average retired worker benefit (${COLA_DATA.averageBenefit}/mo). Medicare Part B: ${COLA_DATA.medicarePremium.toFixed(2)} (2026) → ${COLA_DATA.projectedMedicarePremium.toFixed(2)} (2027 projected).
               </p>
             </div>
           </section>

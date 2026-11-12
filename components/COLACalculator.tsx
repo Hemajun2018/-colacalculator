@@ -168,8 +168,8 @@ export function COLACalculator() {
       </div>
 
       <p className="mt-4 text-base text-gray-600">
-        *Medicare Part B premium: ${COLA_DATA.medicarePremium}/mo (2026
-        actual) → ${COLA_DATA.projectedMedicarePremium}/mo (2027 projected).
+        *Medicare Part B premium: ${COLA_DATA.medicarePremium.toFixed(2)}/mo (2026
+        actual) → ${COLA_DATA.projectedMedicarePremium.toFixed(2)}/mo (2027 projected).
         Amounts rounded per SSA official rounding rules.
       </p>
     </>

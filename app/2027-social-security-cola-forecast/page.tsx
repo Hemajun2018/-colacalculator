@@ -108,7 +108,7 @@ export default function ForecastPage() {
               Current 2027 COLA Predictions
             </h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              The 2027 Social Security Cost-of-Living Adjustment (COLA) will be based on the change in the Consumer Price Index for Urban Wage Earners and Clerical Workers (CPI-W) from Q3 2025 to Q3 2026. While the official announcement won&apos;t come until mid-October 2026, several leading analysts have released their projections.
+              The 2027 Social Security Cost-of-Living Adjustment (COLA) will be based on the change in the Consumer Price Index for Urban Wage Earners and Clerical Workers (CPI-W) from Q3 2025 to Q3 2026. SSA announced the official {COLA_DATA.officialCOLA}% COLA on {COLA_DATA.announcementLabel}.
             </p>
 
             <div className="overflow-x-auto mb-6">

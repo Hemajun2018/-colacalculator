@@ -90,7 +90,7 @@ export default function HistoryPage() {
               The 2027 Social Security COLA
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-4">
-              The 2027 COLA is <strong className="text-gray-900">{COLA_DATA.officialCOLA}%</strong>, announced on {COLA_DATA.announcementLabel} — the largest increase since 2023. For the average retired worker receiving ${COLA_DATA.averageBenefit.toLocaleString()}/month, this means an increase of about $73/month (about $875/year).
+              The 2027 COLA is <strong className="text-gray-900">{COLA_DATA.officialCOLA}%</strong>, announced on {COLA_DATA.announcementLabel} — the largest increase since 2023. For the average retired worker receiving ${COLA_DATA.averageBenefit.toLocaleString()}/month, this means an increase of about ${Math.round(COLA_DATA.averageBenefit * COLA_DATA.officialCOLA / 100)}/month (about ${(Math.round(COLA_DATA.averageBenefit * COLA_DATA.officialCOLA / 100) * 12).toLocaleString()}/year).
             </p>
           </section>
 
@@ -100,10 +100,10 @@ export default function HistoryPage() {
               The 2026 Social Security COLA
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-4">
-              The 2026 COLA was set at <strong className="text-gray-900">{COLA_DATA.currentCOLA}%</strong>, slightly higher than the 2.5% adjustment in 2025. For the average retired worker receiving ${COLA_DATA.averageBenefit.toLocaleString()}/month, this meant an increase of approximately $56/month.
+              The 2026 COLA was set at <strong className="text-gray-900">{COLA_DATA.currentCOLA}%</strong>, slightly higher than the 2.5% adjustment in 2025. For the average retired worker, this meant an increase of approximately $56/month.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              However, the 2026 Medicare Part B premium rose to ${COLA_DATA.medicarePremium}/month, which offset a portion of the COLA increase for most retirees enrolled in Medicare.
+              However, the 2026 Medicare Part B premium rose to ${COLA_DATA.medicarePremium.toFixed(2)}/month, which offset a portion of the COLA increase for most retirees enrolled in Medicare.
             </p>
           </section>
 

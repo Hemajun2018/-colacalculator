@@ -3,7 +3,7 @@
 
 export const COLA_DATA = {
   // ===== 每月更新区域 =====
-  dataAsOf: "2026-10-14",
+  dataAsOf: "2026-11-12",
   nextCPIRelease: "2026-05-13T08:30:00-04:00", // BLS 8:30 AM ET
   nextCPILabel: "May 13, 2026",
 
@@ -23,10 +23,10 @@ export const COLA_DATA = {
   // ===== 年度更新区域 =====
   currentYear: 2026,
   targetYear: 2027,
-  averageBenefit: 2024.77,
+  averageBenefit: 2095, // SSA 2027 COLA fact sheet: all retired workers, before COLA
   medicarePremium: 202.90, // 2026 actual
-  // Placeholder: update once CMS announces the 2027 Part B premium (~Nov 2026)
-  projectedMedicarePremium: 213.05,
+  // 2026 Medicare Trustees Report projection; replace once CMS announces the official 2027 premium (~mid-Nov 2026)
+  projectedMedicarePremium: 209.5,
   currentCOLA: 2.8, // 2026 COLA
 
   // ===== 邮件订阅 =====
